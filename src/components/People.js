@@ -1,4 +1,4 @@
-import React from 'react'
+import {React,useMemo} from 'react'
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'; // it will manage asynchronous
 import Person from './person'
 const fetchpeople = async() => {
@@ -7,7 +7,11 @@ const fetchpeople = async() => {
 }
 const People = () => {
     const {data, status} = useQuery("people",fetchpeople); // useQuery manage the all fetching it can call the data and it catch the data and refresh the data in the background
- console.log(data)
+ console.log('123456',data)
+//  const peoplesData = React.memo(() => {
+//     console.log('Memo Data',status)
+//     return data;
+//  },[data]);
     return(
         <div>
             <h2>People</h2>

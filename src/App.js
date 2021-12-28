@@ -8,6 +8,9 @@ import { useState } from 'react';
 import styled from 'styled-components'
 import ReactMemo from './components/reactmemo'
 import {  QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import Context from './components/Context';
+import Reducer from './components/Reducer';
+import CallBack from './components/Callback';
 const queryClient = new QueryClient();
 const Title = styled.h1`
   font-size: 1.5em;
@@ -20,11 +23,13 @@ function App() {
   const [page,setPage] = useState("planets")
   return (
     <div className="App">
+    <CallBack />
+    <Context />
+      <Reducer />
       <Title>Star Wars info</Title>
       <UserForm />
       <ReactMemo />
       <Navbar setPage={setPage}/>
-  
   <div className='content'>
   <QueryClientProvider client={queryClient}>
        

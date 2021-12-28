@@ -19,6 +19,14 @@ const Navbar = ({ setPage }) => {
     <Button primary onClick={() => setPage("people")}>People</Button>
 </nav>
     )
-}
+};
+// const Navbar = ({ setPage }) => {
+//     return (
+// <nav>
+//     <Button onClick={() => setPage("planets")}>Planets</Button>
+//     <Button primary onClick={() => setPage("people")}>People</Button>
+// </nav>
+//     )
+// };
 
-export default Navbar
+export default React.memo(Navbar);
