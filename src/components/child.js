@@ -1,6 +1,7 @@
-import React,{memo,useMemo} from 'react';
-
-const Child = props => {
+import React,{useMemo} from 'react';
+//react.memo --> Using memo will cause React to skip rendering a component if its props have not changed.This can improve performance.
+//useMemo --> useMemo is used to memoize expensive functions to avoid having to call them on every render.
+const Child = React.forwardRef( (props,ref) => {
     const {counter,updateCounter} = props;
     console.log("child is Rendering!!!");
 
@@ -19,9 +20,11 @@ const Child = props => {
 
  return (
      <div className='Child'>
+        <input ref={ref}  type="text" />
          <h1>child - {childNumber} {counter}</h1>
-         <button onClick={updateCounter}>Click</button>
+         <button onClick={updateCounter} >Click</button>
      </div>
  )
 }
-export default memo(Child)
+)
+export default React.memo(Child)
